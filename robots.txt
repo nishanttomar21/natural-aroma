@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# If the site moves to its own domain, change this address.
+Sitemap: https://nishanttomar21.github.io/natural-aroma/sitemap.xml

@@ -1,0 +1,12 @@
+/* ==========================================================================
+   Natural Aroma — stylesheet entry point
+   The only CSS file the pages link to. The files are loaded in this order,
+   from general to specific; later files may build on earlier ones.
+   ========================================================================== */
+
+@import url("tokens.css"); /* design values: colours, spacing, font sizes */
+@import url("base.css"); /* fonts, browser reset, text styles */
+@import url("components.css"); /* buttons, separators, carousel, FAQ, form fields */
+@import url("layout.css"); /* container, sections, header, mobile menu, footer */
+@import url("sections.css"); /* one block per page section */
+@import url("motion.css"); /* scroll reveal, rolling letters, reduced motion */

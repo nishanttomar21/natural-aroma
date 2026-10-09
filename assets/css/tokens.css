@@ -1,0 +1,89 @@
+/* ==========================================================================
+   Design tokens
+   Every colour, size and timing value the site uses, in one place.
+   The values are taken from the original site's computed styles.
+
+   Breakpoints (media queries cannot use variables, so they are written out):
+     tablet  — wider than 40rem (640px)   @media (width > 40rem)
+     desktop — wider than 80rem (1280px)  @media (width > 80rem)
+   ========================================================================== */
+
+:root {
+  /* Spacing unit ----------------------------------------------------------
+     4px on phones, growing smoothly to 6px on wide screens. Every padding,
+     gap and most fixed sizes are a multiple of it: calc(var(--u) * 6). */
+  --u: clamp(0.25rem, 0.2011rem + 0.2174vw, 0.375rem);
+
+  /* Font families --------------------------------------------------------- */
+  --font-display: "Fraunces", sans-serif;
+  --font-body: "Open Sans", sans-serif;
+  --font-ui: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+
+  /* Font sizes (minimum, preferred, maximum) --------------------------------- */
+  --fs-xs: clamp(0.6944rem, 0.6531rem + 0.1836vw, 0.8rem);
+  --fs-sm: clamp(0.8333rem, 0.7681rem + 0.2899vw, 1rem);
+  --fs-base: clamp(1rem, 0.9022rem + 0.4348vw, 1.25rem);
+  --fs-lg: clamp(1.2rem, 1.0582rem + 0.6304vw, 1.5625rem);
+  --fs-xl: clamp(1.44rem, 1.2392rem + 0.8924vw, 1.9531rem);
+  --fs-2xl: clamp(1.728rem, 1.4488rem + 1.2407vw, 2.4414rem);
+  --fs-3xl: clamp(2.0736rem, 1.6908rem + 1.7011vw, 3.0518rem);
+  --fs-4xl: clamp(2.4883rem, 1.9693rem + 2.3067vw, 3.8147rem);
+  --fs-5xl: clamp(2.986rem, 2.2885rem + 3.0998vw, 4.7684rem);
+
+  /* Surfaces ---------------------------------------------------------------- */
+  --color-canvas: #0e1912; /* default section background */
+  --color-canvas-green: #072b17; /* alternate (green) section background */
+  --color-surface: rgb(255 255 255 / 7.359%); /* cards on the canvas */
+  --color-surface-green: rgb(255 255 255 / 7.311%); /* cards on green sections */
+  --color-surface-raised: rgb(255 255 255 / 7.612%); /* blocks nested inside cards */
+  --color-scrim: rgb(0 0 0 / 44.7%); /* darkens photos behind text */
+
+  /* Text -------------------------------------------------------------------- */
+  --color-fg: #fcfcfc; /* headings and main text */
+  --color-fg-soft: #f3f3f3; /* eyebrows, secondary paragraphs, form labels */
+  --color-fg-muted: #ececec; /* hero lead paragraph */
+  --color-fg-dim: #e5e5e5; /* list numbers on green sections */
+  --color-fg-subtle: #d2d2d2; /* footer details, list numbers */
+  --color-on-image: #f9f9f9; /* headings over photos */
+  --color-on-image-muted: #dfdfdf; /* paragraphs over photos */
+
+  /* Lines ------------------------------------------------------------------- */
+  --color-line: #cbcbcb; /* separators on the canvas */
+  --color-line-soft: #dfdfdf; /* separators on green sections */
+  --color-line-card: #939393; /* separators inside cards */
+  --color-line-strong: #8d8d8d; /* number badge outline */
+  --color-field: #ececec; /* form field outline */
+
+  /* Brand and accents -------------------------------------------------------- */
+  --color-brand: #004222; /* primary buttons, badges */
+  --color-brand-hover: #135031;
+  --color-paper: #fefdfc; /* light buttons */
+  --color-paper-hover: #eeedec;
+  --color-ink: #252525; /* text on light buttons */
+  --color-mint: #bdfad1; /* active carousel dot, contact icons */
+  --color-mint-soft: #e6ffef; /* testimonial dots, FAQ arrows, ticks */
+  --color-mint-faint: #f8fef9; /* icons on green sections */
+  --color-dot: #cbcbcb; /* inactive carousel dot */
+  --color-dot-soft: #dfdfdf;
+  --color-ghost-hover: #1c2720; /* hover fill of outline buttons and fields */
+  --color-ghost-hover-strong: #2a352e;
+  --color-focus-border: #dad2cc; /* keyboard focus on buttons */
+  --color-focus-ring: #f4efea;
+  --color-danger: #ff9592; /* form errors */
+
+  /* Shape ------------------------------------------------------------------- */
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+
+  /* Layout ------------------------------------------------------------------ */
+  --page-max-width: 1536px;
+  --page-gutter: 1.5rem;
+
+  /* Motion ------------------------------------------------------------------ */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-reveal: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-roll: cubic-bezier(0.65, 0, 0.35, 1);
+}

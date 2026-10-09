@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--
+      Blog post template. To publish a post:
+        1. Copy this file to blog/your-post-name.html.
+        2. Fill in everything marked TODO, and delete the "noindex" line below.
+        3. Add a card for it in blog.html and its address to sitemap.xml.
+        4. Run: node scripts/sync-partials.mjs
+    -->
+    <meta name="robots" content="noindex"><!-- TODO: delete this line once the post is written -->
+    <title>Post title | Natural Aroma</title><!-- TODO -->
+    <meta name="description" content="One or two sentences that sum up the post."><!-- TODO -->
+    <meta name="theme-color" content="#0e1912">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Natural Aroma">
+    <meta property="og:title" content="Post title"><!-- TODO -->
+    <meta property="og:description" content="One or two sentences that sum up the post."><!-- TODO -->
+    <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+    <link rel="preload" href="../assets/fonts/open-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../assets/fonts/fraunces-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <script>
+      // Hide scroll-reveal content only while JavaScript can still show it (see assets/js/modules/reveal.js).
+      document.documentElement.classList.add('js');
+      addEventListener('error', (event) => {
+        if (event.target instanceof HTMLScriptElement) document.documentElement.classList.remove('js');
+      }, true);
+    </script>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <script type="module" src="../assets/js/main.js"></script>
+  </head>
+  <body>
+    <!-- partial:header -->
+    <a class="skip-link type-body-sm-em" href="#main">Skip to content</a>
+    <header class="site-header" data-sticky-header>
+      <div class="container site-header__bar">
+        <div class="site-header__brand">
+          <div class="site-header__menu">
+            <!-- Phones: a <details> menu, so it opens and closes even without JavaScript. -->
+            <details class="mobile-menu" data-mobile-menu>
+              <summary class="btn btn--ghost btn--sm btn--icon mobile-menu__toggle" aria-label="Navigation menu">
+                <svg class="mobile-menu__icon mobile-menu__icon--open" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M3 18h18v-2H3zm0-5h18v-2H3zm0-7v2h18V6z"/></svg>
+                <svg class="mobile-menu__icon mobile-menu__icon--close" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+              </summary>
+              <nav class="mobile-menu__panel" aria-label="Main (phone)">
+                <div class="container mobile-menu__list">
+                  <a class="mobile-menu__link type-body-md" href="../about.html">About</a>
+                  <a class="mobile-menu__link type-body-md" href="../products.html">Products</a>
+                  <a class="mobile-menu__link type-body-md" href="../contact.html">Contact</a>
+                  <a class="mobile-menu__link type-body-md" href="../blog.html" aria-current="page">Blog</a>
+                </div>
+              </nav>
+            </details>
+            <div class="separator separator--vertical site-header__divider" role="separator" aria-orientation="vertical"></div>
+          </div>
+          <a class="site-header__logo" href="../index.html" aria-label="Home"><span class="site-header__logo-text type-title-md">Natural Aroma</span></a>
+          <div class="separator separator--vertical site-header__divider site-header__divider--desktop" role="separator" aria-orientation="vertical"></div>
+        </div>
+        <nav class="site-header__nav" aria-label="Main">
+          <a href="../about.html"><span class="site-header__link type-body-sm">About</span></a>
+          <a href="../products.html"><span class="site-header__link type-body-sm">Products</span></a>
+          <a href="../contact.html"><span class="site-header__link type-body-sm">Contact</span></a>
+          <a href="../blog.html" aria-current="page"><span class="site-header__link type-body-sm">Blog</span></a>
+        </nav>
+        <div class="site-header__actions">
+          <a class="btn btn--primary btn--sm" href="../contact.html"><span class="btn__label type-body-sm-em">Request a quote</span></a>
+        </div>
+      </div>
+    </header>
+    <!-- /partial:header -->
+
+    <main id="main">
+      <!-- Article -->
+      <section class="section" id="post">
+        <article class="container article__inner">
+          <a class="article__back type-body-sm-em" href="../blog.html">← All posts</a>
+          <header class="article__header">
+            <span class="article__meta type-label-md"><time datetime="2026-01-15">15 January 2026</time> · Natural Aroma</span><!-- TODO: date and author -->
+            <h1 class="type-display-sm">Post title</h1><!-- TODO -->
+          </header>
+          <div class="media article__cover">
+            <img class="media__img" src="../assets/images/plant-columns.webp" alt="Describe the photo" fetchpriority="high" decoding="async"><!-- TODO: cover photo -->
+          </div>
+          <div class="article__body">
+            <p class="type-body-md">First paragraph.</p><!-- TODO: one <p> per paragraph -->
+            <p class="type-body-md">Second paragraph.</p>
+          </div>
+        </article>
+      </section>
+
+      <!-- Closing call to action -->
+      <section class="section image-cta" id="blog-cta">
+        <div class="image-cta__bg"><img class="media__img" src="../assets/images/distillation-glassware.webp" alt="Stainless steel distillation equipment in an essential oil production plant" loading="lazy" decoding="async"></div>
+        <div class="image-cta__scrim"></div>
+        <div class="container image-cta__inner">
+          <div class="image-cta__heading-wrap">
+            <h2 class="image-cta__title type-display-md">Tell us which oil you need</h2>
+          </div>
+          <div class="image-cta__body">
+            <p class="image-cta__text type-body-md">Send your requirement and our team will confirm the spec, availability, and bulk pricing for your order.</p>
+            <div class="cta-group cta-group--center">
+              <a class="btn btn--primary" href="../contact.html"><span class="btn__label type-body-sm-em">Request a quote</span></a>
+              <a class="btn btn--light" href="tel:08045802014"><span class="btn__label type-body-sm-em">Call 08045802014</span></a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- partial:footer -->
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <div class="site-footer__top">
+          <nav class="site-footer__nav" aria-label="Footer">
+            <a href="../index.html"><span class="site-footer__link type-body-sm">Home</span></a>
+            <a href="../about.html"><span class="site-footer__link type-body-sm">About</span></a>
+            <a href="../products.html"><span class="site-footer__link type-body-sm">Products</span></a>
+            <a href="../contact.html"><span class="site-footer__link type-body-sm">Contact</span></a>
+            <a href="../blog.html" aria-current="page"><span class="site-footer__link type-body-sm">Blog</span></a>
+          </nav>
+          <div class="separator" role="separator"></div>
+        </div>
+        <div class="site-footer__brand">
+          <a class="site-footer__logo" href="../index.html" aria-label="Home"><span class="site-footer__logo-text type-heading-lg">Natural Aroma</span></a>
+        </div>
+        <div class="separator" role="separator"></div>
+        <div class="site-footer__bottom">
+          <p class="site-footer__meta type-body-sm" data-current-year>© 2026 Natural Aroma. All rights reserved.</p>
+          <div class="site-footer__address">
+            <p class="site-footer__meta type-body-sm">485-A/12-A, Dilshad Garden, Indl Area, G.T. Road, Delhi – 110095</p>
+          </div>
+          <!-- These point to the networks' home pages (as on the original); replace them with your profile addresses. -->
+          <div class="site-footer__social">
+            <a href="https://facebook.com/" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><svg class="site-footer__social-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M10.438 21.878C5.659 21.128 2 16.988 2 12 2 6.48 6.48 2 12 2s10 4.48 10 10c0 4.988-3.66 9.127-8.437 9.878v-6.987h2.33L16.336 12h-2.773v-1.876c0-.79.387-1.562 1.63-1.562h1.26v-2.46s-1.144-.196-2.238-.196c-2.285 0-3.777 1.385-3.777 3.89V12h-2.54v2.89h2.54z"/></svg></a>
+            <a href="https://instagram.com/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg class="site-footer__social-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2m0 3.75c-1.697 0-1.91.007-2.577.038-.665.03-1.12.136-1.517.29-.411.16-.76.374-1.107.721a3.1 3.1 0 0 0-.72 1.107c-.155.398-.261.852-.291 1.517-.03.667-.038.88-.038 2.577s.007 1.91.038 2.577c.03.665.136 1.12.29 1.517.16.411.374.76.721 1.107.347.348.696.561 1.107.72.398.155.852.261 1.517.291.667.03.88.038 2.577.038s1.91-.007 2.577-.038c.665-.03 1.12-.136 1.517-.29.411-.16.76-.373 1.107-.721.348-.348.561-.696.72-1.107.155-.398.261-.852.291-1.517.03-.667.038-.88.038-2.577s-.007-1.91-.038-2.577c-.03-.665-.136-1.12-.29-1.517a3.1 3.1 0 0 0-.721-1.107 3.1 3.1 0 0 0-1.107-.72c-.398-.155-.852-.261-1.517-.291-.667-.03-.88-.038-2.577-.038m0 1.126c1.669 0 1.867.006 2.525.037.61.027.94.13 1.161.215.292.113.5.249.719.467s.354.427.467.719c.086.22.188.551.215 1.16.03.66.037.857.037 2.526s-.006 1.867-.037 2.525c-.027.61-.13.94-.215 1.161-.113.292-.249.5-.467.719a1.9 1.9 0 0 1-.719.467c-.22.086-.551.188-1.16.215-.66.03-.857.037-2.526.037s-1.867-.006-2.526-.037c-.609-.027-.94-.13-1.16-.215a1.9 1.9 0 0 1-.719-.467 1.9 1.9 0 0 1-.467-.719c-.086-.22-.188-.551-.215-1.16-.03-.66-.037-.857-.037-2.526s.006-1.867.037-2.526c.027-.609.13-.94.215-1.16.113-.292.249-.5.467-.719s.427-.354.719-.467c.22-.086.551-.188 1.16-.215.66-.03.857-.037 2.526-.037m0 1.915a3.21 3.21 0 1 0 0 6.419 3.21 3.21 0 0 0 0-6.42m0 5.292a2.083 2.083 0 1 1 0-4.166 2.083 2.083 0 0 1 0 4.166m4.086-5.42a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0"/></svg></a>
+            <a href="https://linkedin.com/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><svg class="site-footer__social-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M19.557 2A2.445 2.445 0 0 1 22 4.444v15.113A2.445 2.445 0 0 1 19.557 22H4.444A2.445 2.445 0 0 1 2 19.557V4.444A2.445 2.445 0 0 1 4.444 2zM8.268 18.534V9.717H5.337v8.817zm10.568 0v-5.056c0-2.708-1.446-3.968-3.374-3.968-1.555 0-2.252.855-2.642 1.456V9.717H9.89c.039.828 0 8.817 0 8.817h2.93V13.61c0-.263.02-.527.097-.715.212-.527.694-1.072 1.504-1.072 1.06 0 1.484.809 1.484 1.994v4.717zM6.822 5.466c-1.003 0-1.658.659-1.658 1.523 0 .846.635 1.524 1.62 1.524 1.021 0 1.677-.678 1.677-1.524-.02-.863-.635-1.521-1.639-1.523"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- /partial:footer -->
+  </body>
+</html>

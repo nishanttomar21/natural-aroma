@@ -1,0 +1,91 @@
+/* ==========================================================================
+   Motion: scroll reveal and the rolling-letter hover effect
+   ========================================================================== */
+
+/* Scroll reveal ------------------------------------------------------------
+   Elements with data-reveal start hidden and animate in when reveal.js sees
+   them on screen. They are only hidden when the page has the "js" class
+   (added by a one-line script in each page's <head>), so the content is
+   always visible if JavaScript is off or fails to load. */
+
+[data-reveal] {
+  transition:
+    opacity 600ms var(--ease-reveal),
+    transform 600ms var(--ease-reveal);
+}
+
+.js [data-reveal]:not(.is-revealed) {
+  opacity: 0;
+}
+
+.js [data-reveal="fade-up"]:not(.is-revealed) {
+  transform: translateY(24px);
+}
+
+.js [data-reveal="scale-in"]:not(.is-revealed) {
+  transform: scale(0.92);
+}
+
+/* Rolling letters ------------------------------------------------------------
+   rolling-text.js splits a heading into letters. Each letter has a visible
+   glyph and an identical copy parked just below it; on hover both slide up
+   one line, then jump back without animation (invisible, as they match). */
+
+.rolling-text__word {
+  display: flex;
+  overflow-y: clip;
+  white-space: pre;
+}
+
+.rolling-text__space {
+  white-space: pre;
+}
+
+.rolling-text__letter {
+  position: relative;
+  display: flex;
+}
+
+.rolling-text__glyph,
+.rolling-text__copy {
+  transition: transform 420ms var(--ease-roll);
+}
+
+.rolling-text__glyph {
+  position: relative;
+}
+
+.rolling-text__copy {
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+
+.rolling-text__letter.is-rolling > * {
+  transform: translateY(-100%);
+}
+
+.rolling-text__letter.is-resetting > * {
+  transition: none;
+}
+
+/* Reduced motion -------------------------------------------------------------
+   For visitors who ask their device to minimise animation. */
+
+@media (prefers-reduced-motion: reduce) {
+  .js [data-reveal]:not(.is-revealed) {
+    opacity: 1;
+    transform: none;
+  }
+
+  [data-reveal],
+  .rolling-text__letter > *,
+  .feature-panel,
+  .feature-panel__title,
+  .feature-panel__text,
+  .dots__dot,
+  .faq__icon,
+  .post-card__image .media__img {
+    transition: none;
+  }
+}

@@ -1,0 +1,403 @@
+/* ==========================================================================
+   Components: small reusable parts used across sections
+   Naming follows BEM: .block, .block__element, .block--modifier
+   ========================================================================== */
+
+/* Photo frame --------------------------------------------------------------
+   The frame sets the size; the image fills it and crops to fit. */
+
+.media {
+  position: relative;
+  overflow: hidden;
+}
+
+.media__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  color: transparent; /* hides the alt text while an image loads */
+}
+
+.media__img--contain {
+  object-fit: contain;
+}
+
+/* Buttons ------------------------------------------------------------------ */
+
+.btn {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  gap: calc(var(--u) * 2);
+  padding: calc(var(--u) * 2.5) calc(var(--u) * 5);
+  border: 1px solid transparent;
+  border-radius: var(--radius-xl);
+  background-color: transparent;
+  white-space: nowrap;
+  cursor: pointer;
+  outline: none;
+  transition: all 150ms var(--ease-standard);
+}
+
+.btn:focus-visible {
+  border-color: var(--color-focus-border);
+  box-shadow: 0 0 0 3px var(--color-focus-ring);
+}
+
+.btn:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.btn__label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.btn--sm {
+  gap: calc(var(--u) * 1.5);
+  padding: calc(var(--u) * 2) calc(var(--u) * 4);
+}
+
+.btn--icon {
+  padding: calc(var(--u) * 2);
+}
+
+.btn--block {
+  width: 100%;
+}
+
+.btn--primary {
+  border-color: var(--color-brand);
+  background-color: var(--color-brand);
+  color: var(--color-fg);
+}
+
+.btn--light {
+  border-color: var(--color-paper);
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+}
+
+.btn--outline {
+  border-color: var(--color-line);
+  color: var(--color-fg-muted);
+}
+
+.btn--outline-card {
+  border-color: var(--color-line-soft);
+  color: var(--color-fg);
+}
+
+.btn--ghost {
+  color: var(--color-fg-muted);
+}
+
+@media (hover: hover) {
+  .btn--primary:hover {
+    border-color: var(--color-brand-hover);
+    background-color: var(--color-brand-hover);
+  }
+
+  .btn--light:hover {
+    border-color: var(--color-paper-hover);
+    background-color: var(--color-paper-hover);
+  }
+
+  .btn--outline:hover {
+    border-color: var(--color-fg-muted);
+    background-color: var(--color-ghost-hover);
+  }
+
+  .btn--outline-card:hover {
+    border-color: var(--color-fg);
+    background-color: var(--color-ghost-hover-strong);
+  }
+
+  .btn--ghost:hover {
+    border-color: var(--color-surface);
+    background-color: var(--color-surface);
+  }
+}
+
+/* Button row: full-width and stacked on phones, side by side from tablet ---- */
+
+.cta-group {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: calc(var(--u) * 4);
+}
+
+.cta-group--start {
+  align-items: flex-start;
+}
+
+.cta-group--center {
+  align-items: center;
+}
+
+@media (width > 40rem) {
+  .cta-group {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .cta-group--start {
+    justify-content: flex-start;
+  }
+
+  .cta-group--center {
+    justify-content: center;
+  }
+}
+
+/* Eyebrow: the small label above a heading --------------------------------- */
+
+.eyebrow__text {
+  color: var(--color-fg-soft);
+}
+
+.eyebrow--strong .eyebrow__text {
+  color: var(--color-fg);
+}
+
+/* Separator line ----------------------------------------------------------- */
+
+.separator {
+  flex-shrink: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-line);
+}
+
+.separator--soft {
+  background-color: var(--color-line-soft);
+}
+
+.separator--card {
+  background-color: var(--color-line-card);
+}
+
+.separator--vertical {
+  width: 1px;
+  height: auto;
+}
+
+/* Number badge (01, 02 …) -------------------------------------------------- */
+
+.number-badge {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: calc(var(--u) * 12);
+  height: calc(var(--u) * 12);
+  border: 2px solid var(--color-line-strong);
+  border-radius: var(--radius-xl);
+  background-color: var(--color-canvas);
+}
+
+/* Carousel -----------------------------------------------------------------
+   A row of full-width slides that snaps one slide at a time. Swiping and
+   trackpads work without JavaScript; carousel.js adds the dots, mouse
+   dragging and arrow keys. */
+
+.carousel {
+  position: relative;
+}
+
+.carousel__track {
+  position: relative; /* slides measure their position from here */
+  display: flex;
+  gap: calc(var(--u) * 4);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.carousel__track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.carousel--grab .carousel__track {
+  cursor: grab;
+}
+
+.carousel__track.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+  user-select: none;
+}
+
+/* Pagination dots: the current slide's dot stretches into a bar ------------ */
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: calc(var(--u) * 2);
+  margin-top: calc(var(--u) * 6);
+}
+
+.dots__dot {
+  width: calc(var(--u) * 2);
+  height: calc(var(--u) * 2);
+  border-radius: var(--radius-full);
+  background-color: var(--color-dot);
+  cursor: pointer;
+  transition: all 300ms var(--ease-standard);
+}
+
+.dots__dot[aria-current="true"] {
+  width: calc(var(--u) * 8);
+  background-color: var(--color-mint);
+}
+
+.dots--soft .dots__dot {
+  background-color: var(--color-dot-soft);
+}
+
+.dots--soft .dots__dot[aria-current="true"] {
+  background-color: var(--color-mint-soft);
+}
+
+/* FAQ ----------------------------------------------------------------------
+   Built on <details>, so answers open without JavaScript; faq.js adds the
+   open/close animation and keeps one answer open at a time. */
+
+.faq {
+  display: flex;
+  flex-direction: column;
+  row-gap: calc(var(--u) * 4);
+  width: 100%;
+}
+
+.faq__item {
+  border-radius: var(--radius-xl);
+  padding: calc(var(--u) * 6);
+  background-color: var(--color-surface);
+}
+
+.faq--green .faq__item {
+  background-color: var(--color-surface-green);
+}
+
+.faq__summary {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--u) * 4);
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.faq__question {
+  flex: 1 1 0%;
+}
+
+.faq__icon {
+  color: var(--color-mint-soft);
+  transition: rotate 200ms var(--ease-standard);
+}
+
+.faq--green .faq__icon {
+  color: var(--color-mint-faint);
+}
+
+.faq__item[open]:not(.is-closing) .faq__icon {
+  rotate: 180deg;
+}
+
+.faq__answer {
+  overflow: hidden;
+}
+
+.faq__answer-text {
+  padding-top: calc(var(--u) * 4);
+}
+
+/* Form fields -------------------------------------------------------------- */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--u);
+}
+
+.field__label {
+  color: var(--color-fg-soft);
+}
+
+.field__control {
+  display: flex;
+  width: 100%;
+  padding: calc(var(--u) * 3) calc(var(--u) * 5);
+  border: 1px solid var(--color-field);
+  border-radius: var(--radius-xl);
+  background-color: transparent;
+  color: var(--color-fg-soft);
+  transition: all 150ms var(--ease-standard);
+}
+
+.field__control::placeholder {
+  opacity: 0.5;
+}
+
+.field__control:focus-visible {
+  outline: none;
+  background-color: var(--color-ghost-hover);
+}
+
+.field__control:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.field__control[aria-invalid="true"] {
+  border-color: var(--color-danger);
+}
+
+@media (hover: hover) {
+  .field__control:hover {
+    background-color: var(--color-ghost-hover);
+  }
+}
+
+.field__control--textarea {
+  min-height: calc(var(--u) * 40);
+  resize: vertical;
+}
+
+/* The browser's own dropdown, drawn to look like the other fields. */
+.field__control--select {
+  height: calc(var(--u) * 6 + 1.5em + 2px); /* padding + one line of text + border */
+  padding-right: calc(var(--u) * 11);
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ececec' fill-opacity='.5' d='M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right calc(var(--u) * 5) center;
+  background-size: calc(var(--u) * 4);
+  cursor: pointer;
+}
+
+/* As on the original: until something is chosen the field is only as tall as
+   its arrow, so on small screens it is slightly shorter than the others. */
+.field__control--select:invalid {
+  height: calc(var(--u) * 10 + 2px); /* padding + arrow + border */
+}
+
+.field__control--select option {
+  background-color: var(--color-canvas);
+  color: var(--color-fg-soft);
+}
